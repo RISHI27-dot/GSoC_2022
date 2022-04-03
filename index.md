@@ -5,8 +5,8 @@ Hello, I am Rishikesh applying as a GSoC student this year in the organization l
 # Introduction
 
 ## what is libcamera?
+ libcamera
 
 
 
-
-## project-idea: Improve GStreamer element to add support for properties
+## Project-idea: Improve GStreamer element to add support for properties
