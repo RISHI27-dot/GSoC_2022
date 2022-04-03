@@ -34,9 +34,15 @@ Followed the instruction of [getting started](https://libcamera.org/getting-star
     * When I tried to build the project using `meson build` I faced issues like the meson version mismatch between the root user and the normal user. For me uninstalling and installing meson in root using pip worked.
     * Next I built and installed libcamera from the source into my laptop and tested the working of libcamera by building gstreamer pipeline with libcamera as the video source using the `gst-launch-1.0` command line tool.
 
+        To use GStreamer plugin from source tree, set the following environment so that GStreamer can find it.Ran the following command.
+
+        `export GST_PLUGIN_PATH=$(pwd)/build/src/gstreamer`
+
+        And then to view the camera.
+
         `gst-launch-1.0 libcamerasrc camera-name="Camera 1" ! glimagesink`
     
-    * While running the above ran into many errors, Asked the mentors on libcamera IRC and got the link [this](https://ve0x10.in/blog/2021/libcamera-log/) blog.
+    * While running the above ran into many errors, Asked the mentors on libcamera IRC and got the link to [this](https://ve0x10.in/blog/2021/libcamera-log/) blog.
 
         Followed the steps and was successfully able to use the libcamera’s gstreamer 
         element to view the camera.
