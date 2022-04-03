@@ -47,7 +47,7 @@ Followed the instruction of [getting started](https://libcamera.org/getting-star
         Followed the steps and was successfully able to use the libcamera’s gstreamer 
         element to view the camera.
 
-    ![test_img_one](/assets/test_img_one.png "test_img_one")
+        ![test_img_one](/assets/test_img_one.png "test_img_one")
 
 
 
