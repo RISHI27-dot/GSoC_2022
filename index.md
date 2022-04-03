@@ -48,8 +48,7 @@ Followed the instruction of [getting started](https://libcamera.org/getting-star
         element to view the camera.
 
 
-<img src="https://github.com/RISHI27-dot/GSoC_2022/blob/master/assets/test_img_one.png" alt="test_img_one" style="height: 80%; width:80%;"/>
-    ![test_img_one](assets/test_img_one.png "test_img_one")
+    ![test_img_one](https://github.com/RISHI27-dot/GSoC_2022/blob/master/assets/test_img_one.png "test_img_one")
 
 
 
