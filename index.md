@@ -65,5 +65,7 @@ Followed the instruction of [getting started](https://libcamera.org/getting-star
    `gst-launch-1.0 tcpclientsrc host=$DEVICE_IP port=5000 ! \
      multipartdemux ! jpegdec ! autovideosink`
 
+   ![test_img_two](./assets/test_img_two.png "test_img_two")
+
 
 
