@@ -64,16 +64,17 @@ Followed the instruction of [getting started](https://libcamera.org/getting-star
      video/x-raw,colorimetry=bt709,format=NV12,width=1280,height=720,framerate=30/1 ! \
      jpegenc ! multipartmux ! \
      tcpserversink host=0.0.0.0 port=5000
+
   ```
 
    To recive the stream on othe device connected to the same network as the Raspberry Pi edit the IP address of the Raspberry Pi in the following command and enter the command in the terminal of device.
 
 
-    ```
-    gst-launch-1.0 tcpclientsrc host=$DEVICE_IP port=5000 ! \
+  ```
+  gst-launch-1.0 tcpclientsrc host=$DEVICE_IP port=5000 ! \
       multipartdemux ! jpegdec ! autovideosink
 
-    ```
+  ```
 
    ![test_img_two](./assets/test_img_two.png "test_img_two")
 
