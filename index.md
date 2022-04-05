@@ -26,7 +26,12 @@ Followed the instruction of [getting started](https://libcamera.org/getting-star
 * I had buster on my hardware the first step for me was to upgrade to bullseye because I wanted to use libcamera-apps. Also, I bought a 5MP Raspberry Pi 3 Model B Camera Module.
 * The new bullseye OS had libcamera and required libraries perbuilt, tested the libcamera apps, was able to capture a image using 
 
-    `libcamera-jpeg -o test.jpg`
+    ```
+
+    libcamera-jpeg -o test.jpg
+
+    ```
+
  
  * Next step for me was to build the libcamera from the source. 
     * Installed the required Debian packages on my laptop.
@@ -35,16 +40,16 @@ Followed the instruction of [getting started](https://libcamera.org/getting-star
 
         To use GStreamer plugin from source tree, set the following environment so that GStreamer can find it.Ran the following command.
         ```
-        export GST_PLUGIN_PATH=$(pwd)/build/src/gstreamer`
+        export GST_PLUGIN_PATH=$(pwd)/build/src/gstreamer
 
         ```
 
         And then to view the camera.
 
-      ```
+       ```
        gst-launch-1.0 libcamerasrc camera-name="Camera 1" ! glimagesink
 
-      ```
+       ```
     * While running the above ran into many errors, Asked the mentors on libcamera IRC and got the link to [this](https://ve0x10.in/blog/2021/libcamera-log/) blog.
 
         Followed the steps and was successfully able to use the libcamera’s gstreamer 
