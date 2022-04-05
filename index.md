@@ -5,7 +5,7 @@ Hello, I am Rishikesh applying as a GSoC student this year in the organization l
 # Introduction
 
 ## what is libcamera?
- libcamera
+ libcamera is an open source camera stack for many platforms with a core userspace library, and support from the Linux kernel APIs and drivers already in place. It aims to control the complexity of embedded camera hardware by providing an intuitive API and method of separating untrusted vendor code from the open source core.
 
 
 
@@ -35,13 +35,17 @@ Followed the instruction of [getting started](https://libcamera.org/getting-star
     * Next I built and installed libcamera from the source into my laptop and tested the working of libcamera by building gstreamer pipeline with libcamera as the video source using the `gst-launch-1.0` command line tool.
 
         To use GStreamer plugin from source tree, set the following environment so that GStreamer can find it.Ran the following command.
+        ```
+        export GST_PLUGIN_PATH=$(pwd)/build/src/gstreamer`
 
-        `export GST_PLUGIN_PATH=$(pwd)/build/src/gstreamer`
+        ```
 
         And then to view the camera.
 
-        `gst-launch-1.0 libcamerasrc camera-name="Camera 1" ! glimagesink`
-    
+      ```
+       gst-launch-1.0 libcamerasrc camera-name="Camera 1" ! glimagesink
+
+      ```
     * While running the above ran into many errors, Asked the mentors on libcamera IRC and got the link to [this](https://ve0x10.in/blog/2021/libcamera-log/) blog.
 
         Followed the steps and was successfully able to use the libcamera’s gstreamer 
@@ -55,15 +59,21 @@ Followed the instruction of [getting started](https://libcamera.org/getting-star
 
    To streme from Raspberry Pi edit the IP address assigned to your Raspberry Pi in the following command and enter the command into your Raspberry Pi terminal.
 
-   `gst-launch-1.0 libcamerasrc ! \
+   ```
+   gst-launch-1.0 libcamerasrc ! \
      video/x-raw,colorimetry=bt709,format=NV12,width=1280,height=720,framerate=30/1 ! \
      jpegenc ! multipartmux ! \
-     tcpserversink host=0.0.0.0 port=5000`
+     tcpserversink host=0.0.0.0 port=5000
+  ```
 
    To recive the stream on othe device connected to the same network as the Raspberry Pi edit the IP address of the Raspberry Pi in the following command and enter the command in the terminal of device.
 
-   `gst-launch-1.0 tcpclientsrc host=$DEVICE_IP port=5000 ! \
-     multipartdemux ! jpegdec ! autovideosink`
+
+    ```
+    gst-launch-1.0 tcpclientsrc host=$DEVICE_IP port=5000 ! \
+      multipartdemux ! jpegdec ! autovideosink
+
+    ```
 
    ![test_img_two](./assets/test_img_two.png "test_img_two")
 
