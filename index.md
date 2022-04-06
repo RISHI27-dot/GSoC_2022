@@ -2,14 +2,14 @@
 Hello, I am Rishikesh applying as a GSoC student this year in the organization libcamera.I am writing this blog when the GSoC student application period is about to begin. This blog will cover the journey of applying for the libcamera organization and the challenges I faced during it and how I tackled them.
 
 
-# Introduction
+# **Introduction**
 
 ## what is libcamera?
  libcamera is an open source camera stack for many platforms with a core userspace library, and support from the Linux kernel APIs and drivers already in place. It aims to control the complexity of embedded camera hardware by providing an intuitive API and method of separating untrusted vendor code from the open source core.
 
 
 
-## Project-idea: Improve GStreamer element to add support for properties
+## **Project-idea: Improve GStreamer element to add support for properties**
 
 ### **Project idea introduction.**
 
@@ -27,9 +27,7 @@ Followed the instruction of [getting started](https://libcamera.org/getting-star
 * The new bullseye OS had libcamera and required libraries perbuilt, tested the libcamera apps, was able to capture a image using 
 
     ```
-
     libcamera-jpeg -o test.jpg
-
     ```
 
  
@@ -41,14 +39,12 @@ Followed the instruction of [getting started](https://libcamera.org/getting-star
         To use GStreamer plugin from source tree, set the following environment so that GStreamer can find it.Ran the following command.
         ```
         export GST_PLUGIN_PATH=$(pwd)/build/src/gstreamer
-
         ```
 
         And then to view the camera.
 
        ```
        gst-launch-1.0 libcamerasrc camera-name="Camera 1" ! glimagesink
-
        ```
     * While running the above ran into many errors, Asked the mentors on libcamera IRC and got the link to [this](https://ve0x10.in/blog/2021/libcamera-log/) blog.
 
@@ -68,7 +64,6 @@ Followed the instruction of [getting started](https://libcamera.org/getting-star
      video/x-raw,colorimetry=bt709,format=NV12,width=1280,height=720,framerate=30/1 ! \
      jpegenc ! multipartmux ! \
      tcpserversink host=0.0.0.0 port=5000
-
   ```
 
   *  To recive the stream on othe device connected to the same network as the Raspberry Pi edit the IP address of the Raspberry Pi in the following command and enter the command in the terminal of device.
@@ -77,7 +72,6 @@ Followed the instruction of [getting started](https://libcamera.org/getting-star
   ```
   gst-launch-1.0 tcpclientsrc host=$DEVICE_IP port=5000 ! \
       multipartdemux ! jpegdec ! autovideosink
-
   ```
 
    ![test_img_two](./assets/test_img_two.png "test_img_two")
