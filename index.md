@@ -57,7 +57,7 @@ Followed the instruction of [getting started](https://libcamera.org/getting-star
 
    Used the command of the getting started page to stream using the libcamera element as source in the gstreamer pipeline. To capture and encode as a JPEG stream(from the Raspberry pi 5 MP camera) and receive on another device(laptop) use the following commands from the [getting started](https://libcamera.org/getting-started.html) page.
 
-   * To strem from Raspberry Pi edit the IP address assigned to your Raspberry Pi in the following command and enter the command into your Raspberry Pi terminal.
+   * To stream from Raspberry Pi edit the IP address assigned to your Raspberry Pi in the following command and enter the command into your Raspberry Pi terminal.
 
    ```
   gst-launch-1.0 libcamerasrc ! \
