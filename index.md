@@ -57,7 +57,7 @@ Followed the instruction of [getting started](https://libcamera.org/getting-star
 
    Used the command of the getting started page to stream using the libcamera element as source in the gstreamer pipeline. To capture and encode as a JPEG stream(from the Raspberry pi 5 MP camera) and receive on another device(laptop) use the following commands from the [getting started](https://libcamera.org/getting-started.html) page.
 
-   * To streme from Raspberry Pi edit the IP address assigned to your Raspberry Pi in the following command and enter the command into your Raspberry Pi terminal.
+   * To strem from Raspberry Pi edit the IP address assigned to your Raspberry Pi in the following command and enter the command into your Raspberry Pi terminal.
 
    ```
   gst-launch-1.0 libcamerasrc ! \
@@ -66,8 +66,7 @@ Followed the instruction of [getting started](https://libcamera.org/getting-star
      tcpserversink host=0.0.0.0 port=5000
   ```
 
-  *  To recive the stream on othe device connected to the same network as the Raspberry Pi edit the IP address of the Raspberry Pi in the following command and enter the command in the terminal of device.
-
+  *  To receive the stream on another device connected to the same network as the Raspberry Pi, edit the IP address of the Raspberry Pi in the following command and enter the command in the terminal of the device.
 
   ```
   gst-launch-1.0 tcpclientsrc host=$DEVICE_IP port=5000 ! \
