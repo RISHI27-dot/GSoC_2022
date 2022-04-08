@@ -5,6 +5,8 @@
 #include <libcamera/libcamera.h>
 
 #include "event_loop.h"
+#include <libcamera/file_sink.h>
+
 
 #define TIMEOUT_SEC 3
 
