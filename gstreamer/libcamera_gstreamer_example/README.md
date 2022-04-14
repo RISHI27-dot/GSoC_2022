@@ -18,5 +18,5 @@ To run the example project.
 ```
 
 
-After this the OpenGL renderer will open which will display the stream captured form the camera.
+After this the OpenGL renderer will be opened which will display the stream captured form the camera.
 
