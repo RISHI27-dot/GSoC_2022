@@ -1,8 +1,8 @@
 
 
 
-Set the environment so that libcamerasrc gstreamer element can be found. It will be found in the libcamera build dir. Set the environment variable to the appropriate path. 
-For example, I have cloned and built libcamer on the Desktop on my linux system, for me the command will be 
+Set the environment so that libcamerasrc gstreamer element can be found.
+For example, I have cloned and built libcamera on the Desktop on my linux system, for me the command to set the environment will be 
 
 ```
 export GST_PLUGIN_PATH=~/Desktop/libcamera/build/src/gstreamer
