@@ -17,3 +17,6 @@ gcc libcamera_source_to_sink.c -o libcamera_source_to_sink `pkg-config --cflags 
 and now run
 
 `./libcamera_source_to_sink `
+
+After this the OpenGL renderer will open which will display the stream captured form the camera.
+
