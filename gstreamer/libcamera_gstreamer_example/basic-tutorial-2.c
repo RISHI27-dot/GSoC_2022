@@ -12,13 +12,13 @@ main (int argc, char *argv[])
   gst_init (&argc, &argv);
 
   /* Create the elements */
-  source = gst_element_factory_make ("videotestsrc", "source");
-  sink = gst_element_factory_make ("autovideosink", "sink");
+  source = gst_element_factory_make ("libcamerasrc", "source");
+  sink = gst_element_factory_make ("glimagesink", "sink");
 
   /* Create the empty pipeline */
   pipeline = gst_pipeline_new ("test-pipeline");
 
-  if (!pipeline || !source || !sink) {
+  if (!pipeline || !sink) {
     g_printerr ("Not all elements could be created.\n");
     return -1;
   }
@@ -31,10 +31,7 @@ main (int argc, char *argv[])
     return -1;
   }
 
-  /* Modify the source's properties */
-  g_object_set (source, "pattern", 0, NULL);
-
-  /* Start playing */
+  //start playint the pipeline
   ret = gst_element_set_state (pipeline, GST_STATE_PLAYING);
   if (ret == GST_STATE_CHANGE_FAILURE) {
     g_printerr ("Unable to set the pipeline to the playing state.\n");
