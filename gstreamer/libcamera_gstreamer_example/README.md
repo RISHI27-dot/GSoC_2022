@@ -8,11 +8,11 @@ For example, I have cloned and built libcamera on the Desktop on my linux system
 export GST_PLUGIN_PATH=~/Desktop/libcamera/build/src/gstreamer
 ```
 
-To compile this example project. 
+To compile the example project. 
 ```
 gcc libcamera_source_to_sink.c -o libcamera_source_to_sink `pkg-config --cflags --libs gstreamer-1.0`
 ```
-To run the project.
+To run the example project.
 ```
 ./libcamera_source_to_sink 
 ```
