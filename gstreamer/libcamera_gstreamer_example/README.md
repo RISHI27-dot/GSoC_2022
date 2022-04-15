@@ -1,7 +1,7 @@
 
 
 # Introduction
-After going through the gstreamer tutorials, I have made a test application that uses the libcamera gstreamer element to capture video from the camera and displays the stream on the OpenGL renderer. Between the source (libcamerasrc) and the sink (glimagesink) I have used a filter to flip the video clockwise by 90 degrees.
+After going through the gstreamer tutorials, I have made a test application that uses the libcamera gstreamer element to capture video from the camera and displays the stream on the OpenGL renderer. Between the source (libcamerasrc) and the sink (glimagesink). I have also added a filter (videoflip) between the source and the sink to flip the video stream clockwise by 90 degrees.
 
 # Usage
 Set the environment so that libcamerasrc gstreamer element can be found.
