@@ -3,33 +3,41 @@
 int
 main (int argc, char *argv[])
 {
-  GstElement *pipeline, *source, *sink;
+  GstElement *pipeline, *source, *sink, *filter;
   GstBus *bus;
   GstMessage *msg;
   GstStateChangeReturn ret;
 
-  /* Initialize GStreamer */
+  // Initialize GStreamer
   gst_init (&argc, &argv);
 
-  /* Create the elements */
+  //Creating required elements
   source = gst_element_factory_make ("libcamerasrc", "source");
+  filter = gst_element_factory_make("videoflip","filter");
   sink = gst_element_factory_make ("glimagesink", "sink");
 
-  /* Create the empty pipeline */
-  pipeline = gst_pipeline_new ("test-pipeline");
+  //Creating pipeline
+  pipeline = gst_pipeline_new ("my-pipeline");
 
-  if (!pipeline || !sink) {
+  if (!pipeline || !source || !filter || !sink) {
     g_printerr ("Not all elements could be created.\n");
     return -1;
   }
 
-  /* Build the pipeline */
-  gst_bin_add_many (GST_BIN (pipeline), source, sink, NULL);
-  if (gst_element_link (source, sink) != TRUE) {
-    g_printerr ("Elements could not be linked.\n");
+  //adding and linking the element and building the pipeline
+  gst_bin_add_many (GST_BIN (pipeline), source,filter,sink, NULL);
+  if (gst_element_link (source,filter) != TRUE) {
+    g_printerr ("Source and filter could not be linked.\n");
     gst_object_unref (pipeline);
     return -1;
   }
+  if (gst_element_link (filter,sink) != TRUE) {
+    g_printerr ("filter and sink could not be linked.\n");
+    gst_object_unref (pipeline);
+    return -1;
+  }
+
+  g_object_set (filter, "method", 1, NULL);
 
   //start playint the pipeline
   ret = gst_element_set_state (pipeline, GST_STATE_PLAYING);
@@ -39,13 +47,11 @@ main (int argc, char *argv[])
     return -1;
   }
 
-  /* Wait until error or EOS */
   bus = gst_element_get_bus (pipeline);
   msg =
       gst_bus_timed_pop_filtered (bus, GST_CLOCK_TIME_NONE,
       GST_MESSAGE_ERROR | GST_MESSAGE_EOS);
 
-  /* Parse message */
   if (msg != NULL) {
     GError *err;
     gchar *debug_info;
@@ -64,14 +70,12 @@ main (int argc, char *argv[])
         g_print ("End-Of-Stream reached.\n");
         break;
       default:
-        /* We should not reach here because we only asked for ERRORs and EOS */
         g_printerr ("Unexpected message received.\n");
         break;
     }
     gst_message_unref (msg);
   }
 
-  /* Free resources */
   gst_object_unref (bus);
   gst_element_set_state (pipeline, GST_STATE_NULL);
   gst_object_unref (pipeline);

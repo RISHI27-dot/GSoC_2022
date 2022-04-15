@@ -1,5 +1,9 @@
 
 
+Introductio:
+After going throught the gstreamer tutorials, I have made a test application that uses the libcamera gstreamer element to capture video form the camera and displays the stream on the OpenGL renderer. Between the source (libcamerasrc) and the sink (glimagesink) I have used a filter to flip the video clockwise by 90 degrees.
+
+<hr/>
 
 Set the environment so that libcamerasrc gstreamer element can be found.
 For example, I have cloned and built libcamera on the Desktop on my linux system, for me the command to set the environment will be 
