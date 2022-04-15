@@ -39,7 +39,7 @@ main (int argc, char *argv[])
 
   g_object_set (filter, "method", 1, NULL);
 
-  //start playint the pipeline
+  //start playing the pipeline
   ret = gst_element_set_state (pipeline, GST_STATE_PLAYING);
   if (ret == GST_STATE_CHANGE_FAILURE) {
     g_printerr ("Unable to set the pipeline to the playing state.\n");
