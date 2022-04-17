@@ -37,6 +37,7 @@ main (int argc, char *argv[])
     return -1;
   }
 
+  //setting the filter to rotate the video streame clockwise by 90 degrees.
   g_object_set (filter, "method", 1, NULL);
 
   //start playing the pipeline
