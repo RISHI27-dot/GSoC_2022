@@ -91,3 +91,6 @@ Followed the instruction of [getting started](https://libcamera.org/getting-star
 
    Now, I was clear about the gstreamer properties and libcamera controls. I asked for help on IRC on how to connect them to each other. To connect them we need to map the property form gstreamer to the appropriate control in libcamera. I understood how the mapping can be done by backtracking the function `gst_libcamera_stream_configuration_to_caps()`, for now the gstreamer `GstVideoFormat` is mapped to libcamera `PixelFormat`, this function can be further extended to map libcamera colorspace ot gstreamer colorimetry. Similarly, `gst_libcamera_stream_formats_to_caps()` could be extended to map the framerate form gstreamer and the FrameDuration (or FrameDurationLimits) from libcamera, and probably set it to be configured when the camera is started.
 
+# Contributions
+
+   As a part of my contribution in libcamera I submitted [this](https://git.libcamera.org/libcamera/libcamera.git/commit/?id=dd8b1723ac56580600ada71d670d5c01ce9eedf7) patch. The patch was trivial but I was happy about my first contribution in open source. I will be glad to contribute more in the libcamera codebase.
