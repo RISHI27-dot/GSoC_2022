@@ -75,5 +75,19 @@ Followed the instruction of [getting started](https://libcamera.org/getting-star
 
    ![test_img_two](./assets/test_img_two.png "test_img_two")
 
+**3.Explore how controls work in libcamera. Building a test application that uses libcamera (or extend cam) that can set controls might help.**
 
+   For reference I went through [simple-cam](https://git.libcamera.org/libcamera/simple-cam.git/tree/simple-cam.cpp) and built a test application that can set controls. The code for the test application can be found [here](https://github.com/RISHI27-dot/GSoC_2022/tree/master/libcamera_test_application_with_controls). 
+   Next, I was asked by Vedant to go through GStreamer tutorials and build a gstreamer application using libcamerasrc element. I build a gstreamer application which useases libcamera as source and glimagesink as sink. A filter is added in between which flips the video stream clockwise by 90 degrees. The code for GStreamer application can be found [here](https://github.com/RISHI27-dot/GSoC_2022/tree/master/gstreamer/libcamera_gstreamer_example).
+
+
+**4.Explore GStreamer properties**
+
+   Read about the GStreamer properties from the GStreamer tutorials.
+   First I read about GLib, GObject instantiation and GObject properties.
+   Next, I went through the code in `libcamera/src/gstreamer` and understood how the camera-name property is defined in the `gst_libcamera_src_class_init()` function and how the `gst_libcamera_src_set_property()` and `gst_libcamera_src_get_property()`S functions manage the property.
+
+**5.How would you connect GStreamer properties to libcamera controls? This will form the design of your project.**
+
+   Now, I was clear about the gstreamer properties and libcamera controls. I asked for help on IRC on how to connect them to each other. To connect them we need to map the property form gstreamer to the appropriate control in libcamera. I understood how the mapping can be done by backtracking the function `gst_libcamera_stream_configuration_to_caps()`, for now the gstreamer `GstVideoFormat` is mapped to libcamera `PixelFormat`, this function can be further extended to map libcamera colorspace ot gstreamer colorimetry. Similarly, `gst_libcamera_stream_formats_to_caps()` could be extended to map the framerate form gstreamer and the FrameDuration (or FrameDurationLimits) from libcamera, and probably set it to be configured when the camera is started.
 
