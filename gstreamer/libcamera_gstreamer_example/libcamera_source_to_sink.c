@@ -69,7 +69,7 @@ int main(int argc, char *argv[])
   }
 
   // setting the filter to rotate the video streame clockwise by 90 degrees.
-  g_object_set(filter, "method", 1, NULL);
+  g_object_set(filter, "method", 0, NULL);
   // gchar *cam_name;
   // g_object_get (source,"camera-name",&cam_name,NULL);
   // if(cam_name == NULL){
